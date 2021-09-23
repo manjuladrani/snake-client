@@ -12,15 +12,17 @@ const connect = function () {
     conn.setEncoding("utf8");
 
     conn.on('data', (data) => {
-        console.log('Server Says: ', data);
+        console.log(data.toString());
+        co.end();
+        console.log('Manjula connected to snek server');
     })
 
     conn.on('connect', () => {
-        console.log('Server Says: ', 'successfully connected to the snake server');
+        console.log('Manjula connected to snek server');
+        conn.write("Name: MRD");
+        conn.write("Say: Hiiiiii");
     })
-    conn.on('connect', () => {
-        conn.write("Name: SNK");
-    })
+    
      
 
     // interpret incoming data as text
